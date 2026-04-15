@@ -102,11 +102,11 @@ class TestHashHelpers(unittest.TestCase):
 
 class TestFindDuplicates(unittest.TestCase):
     def setUp(self):
-        self._tmp = tempfile.mkdtemp()
+        self._tmpdir = tempfile.TemporaryDirectory()
+        self._tmp = self._tmpdir.name
 
     def tearDown(self):
-        import shutil
-        shutil.rmtree(self._tmp, ignore_errors=True)
+        self._tmpdir.cleanup()
 
     # ── helpers ──────────────────────────────────────────────────────────
 

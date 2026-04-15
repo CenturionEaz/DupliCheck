@@ -244,7 +244,8 @@ class DuplicateScanner:
             self._result = groups
             if self.done_callback:
                 self.done_callback(groups)
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:  # noqa: BLE001 – intentionally broad: worker thread must never crash silently
+            # Route any unexpected exception to the caller so the UI can show an error dialog.
             if self.error_callback:
                 self.error_callback(exc)
 
