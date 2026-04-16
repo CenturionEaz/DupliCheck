@@ -1,0 +1,3 @@
+# DupliCheck requires Python ≥ 3.8 and only uses the standard library.
+# tkinter is bundled with most Python distributions; on Debian/Ubuntu you
+# may need:  sudo apt-get install python3-tk
